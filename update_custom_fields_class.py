@@ -9,7 +9,7 @@ for testing  use this adress:
 "https://cmmsx-test.cern.ch/WSHub/SOAP"
 
 for production:
-"https://test.cern.ch/WSHub/SOAP"
+"https://cmmsx.cern.ch/WSHub/SOAP"
 
 '''
 import requests
@@ -28,11 +28,16 @@ class EamCustomFieldsManager:
         custom_fieldValue_1,
         custom_fieldValue_2,
         custom_fieldValue_3,
-        custom_fieldValue_4
+        custom_fieldValue_4,
+        operational=False
     ):
         self.username = username
         self.password = password
-        self.url = "https://cmmsx-test.cern.ch/WSHub/SOAP"
+
+        if operational:
+            self.url = "https://cmmsx.cern.ch/WSHub/SOAP"
+        else:   
+            self.url = "https://cmmsx-test.cern.ch/WSHub/SOAP"
 
         # custom fields
         self.CustomFieldCode_1 = custom_fieldCode_1
